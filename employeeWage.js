@@ -18,6 +18,7 @@ if (empCheck == IS_ABSENT) {
  const PART_TIME_HRS = 4;
  const FULL_TIME_HRS = 8;
  const WAGE_PER_HR = 20;
+ const NUM_OF_WORKING_DAYS = 2;
 
 let empHrs = 0;
 empWageCheck = Math.floor(Math.random() * 10) % 3;
@@ -53,3 +54,15 @@ let empCheck = Math.floor(Math.random() * 10) % 3;
 empHrs = getWorkingHrs(empCheck);
 let empWage = empHrs * WAGE_PER_HR;
 console.log("Employee Wage :" + empWage);
+
+/**
+ * calculating monthly wage
+ */
+ let empHours = 0;
+ for (let day =0; day < NUM_OF_WORKING_DAYS; day++) {
+     let empCheck = Math.floor(Math.random() * 10) % 3;
+     empHours = empHours + getWorkingHrs(empCheck);
+ }
+ 
+ let employeeWage = empHours * WAGE_PER_HR ;
+ console.log("Total Hours : " + empHours + "\nEmployee Wage: " + employeeWage);
