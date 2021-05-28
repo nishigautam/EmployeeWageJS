@@ -66,3 +66,21 @@ console.log("Employee Wage :" + empWage);
  
  let employeeWage = empHours * WAGE_PER_HR ;
  console.log("Total Hours : " + empHours + "\nEmployee Wage: " + employeeWage);
+
+ /**
+  * Calculating Wages till Number of Working days.
+  */
+
+  const MAX_HRS_IN_MONTH = 100;
+  const NUM_OF_WORKING_DAYS = 10;
+
+  let totalEmpHrs = 0;
+  let totalWorkingDays = 0;
+  
+  while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+      totalWorkingDays++;
+      let empCheckRandom = Math.floor(Math.random() * 10) % 3;
+      totalEmpHrs += getWorkingHrs(empCheckRandom);
+  }
+  let empSalary = totalEmpHrs * WAGE_PER_HR;
+  console.log("Total Days: " + totalWorkingDays + "\nTotal Hours: " + totalEmpHrs + "\nEmployee Wage: " + empSalary);
