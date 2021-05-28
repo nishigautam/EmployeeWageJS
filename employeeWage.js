@@ -18,7 +18,7 @@ if (empCheck == IS_ABSENT) {
  const PART_TIME_HRS = 4;
  const FULL_TIME_HRS = 8;
  const WAGE_PER_HR = 20;
- 
+
 let empHrs = 0;
 empWageCheck = Math.floor(Math.random() * 10) % 3;
 switch (empWageCheck) {
@@ -34,3 +34,22 @@ switch (empWageCheck) {
 
 let empWage = empHrs * WAGE_PER_HR;
 console.log("Employee Wage : " + empWage);
+
+/**
+ * refactored the calculating empWage in function
+ */
+ function getWorkingHrs(empCheck) {
+    switch (empCheck) {
+        case IS_PART_TIME :
+            return PART_TIME_HRS;
+        case IS_FULL_TIME :
+            return FULL_TIME_HRS;
+        default :
+            return 0;
+    }
+}
+let empHrs = 0;
+let empCheck = Math.floor(Math.random() * 10) % 3;
+empHrs = getWorkingHrs(empCheck);
+let empWage = empHrs * WAGE_PER_HR;
+console.log("Employee Wage :" + empWage);
