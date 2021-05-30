@@ -143,3 +143,38 @@ function fullTimeWage(dailyWage) {
 
 let fullDayWageArray = mapDailyWithWageArray.filter(fullTimeWage);
 console.log("UC7(c) : Daily Wage Filter when Fulltime Wage Earned : " + fullDayWageArray);
+
+//find first occurrence when fullTimeWage was earned using find func
+
+function findFullTimeWage(dailyWage) {
+    return dailyWage.includes("160");
+}
+console.log("UC7(d) : First time Fulltime Wgae earned on Day: " 
++ mapDailyWithWageArray.find(findFullTimeWage));
+
+//check if Each Element of Fulltime Wage is Truely holding Full time wage
+
+function isAllFulltimeWage(dailyWage) {
+    return dailyWage.includes("160");
+}
+console.log("UC7(e) : Check all element have full Time Wage : " 
++ fullDayWageArray.every(isAllFulltimeWage));
+
+// Check if there is any Part Time Wage
+function isAnyPartTimeWage(dailyWage) {
+    return dailyWage.includes(80);
+}
+console.log("UC7(f) : Check if Any PartTime Wage : " 
++ mapDailyWithWageArray.some(isAnyPartTimeWage));
+
+// Find the number of days the Employee Worked
+
+function totalDaysWorked(numOfDays, dailyWage) {
+    if(dailyWage > 0) 
+        return numOfDays+1;
+
+    return numOfDays;
+}
+
+console.log("UC7(g) : Number of Days Employee Worked : " 
++ empDailyWageArray.reduce(totalDaysWorked, 0));
