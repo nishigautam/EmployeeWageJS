@@ -117,11 +117,21 @@ function sum(dailyWage) {
 //Calculating total wage using array forEach
 
 empDailyWageArray.forEach(sum);
-console.log("UC7 : Total Days :- " + totalWorkingDays + 
+console.log("UC7(a) : Total Days :- " + totalWorkingDays + 
 "\n Total Hours:- " + totalEmpHrs + "\nEmployee Wage :- " + totEmpWage);
 
 function totalWages(totalWage, dailyWage) {
     return totalWage + dailyWage ;
 }
-console.log("UC7 : Employee Wage with reduce :- " +
-                empDailyWageArray.reduce(totalWages, 0));
+console.log("UC7(a) : Employee Wage with reduce :- " +
+empDailyWageArray.reduce(totalWages, 0));
+
+// Show the day along with Daily Wage using Array Map Helper Function
+
+let dailyCount = 0;
+function mapDailyWithWage(dailyWage) {
+    dailyCount++;
+    return dailyCount + " = " + dailyWage;
+}
+let mapDailyWithWageArray = empDailyWageArray.map(mapDailyWithWage);
+console.log("UC7(b) : Daily Wage Map: " + mapDailyWithWageArray);
