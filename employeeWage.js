@@ -18,7 +18,7 @@ if (empCheck == IS_ABSENT) {
  const PART_TIME_HRS = 4;
  const FULL_TIME_HRS = 8;
  const WAGE_PER_HR = 20;
- const NUM_OF_WORKING_DAYS = 2;
+ const NUM_OF_WORKING_DAYS = 20;
 
 let empHrs = 0;
 empWageCheck = Math.floor(Math.random() * 10) % 3;
@@ -34,7 +34,7 @@ switch (empWageCheck) {
 }
 
 let empWage = empHrs * WAGE_PER_HR;
-console.log("Employee Wage : " + empWage);
+console.log("UC2 :Employee Wage :- " + empWage);
 
 /**
  * refactored the calculating empWage in function
@@ -49,30 +49,29 @@ console.log("Employee Wage : " + empWage);
             return 0;
     }
 }
-let empHrs = 0;
-let empCheck = Math.floor(Math.random() * 10) % 3;
+//let empCheck = Math.floor(Math.random() * 10) % 3;
 empHrs = getWorkingHrs(empCheck);
-let empWage = empHrs * WAGE_PER_HR;
-console.log("Employee Wage :" + empWage);
+empWage = empHrs * WAGE_PER_HR;
+console.log("UC3 :[Refactored]Employee Wage :- " + empWage);
 
 /**
  * calculating monthly wage
  */
  let empHours = 0;
  for (let day =0; day < NUM_OF_WORKING_DAYS; day++) {
-     let empCheck = Math.floor(Math.random() * 10) % 3;
+     //let empCheck = Math.floor(Math.random() * 10) % 3;
      empHours = empHours + getWorkingHrs(empCheck);
  }
  
  let employeeWage = empHours * WAGE_PER_HR ;
- console.log("Total Hours : " + empHours + "\nEmployee Wage: " + employeeWage);
+ console.log("UC4: Total Hours :- " + empHours + "\nEmployee Wage: " + employeeWage);
 
  /**
   * Calculating Wages till Number of Working days.
   */
 
-  const MAX_HRS_IN_MONTH = 100;
-  const NUM_OF_WORKING_DAYS = 10;
+  const MAX_HRS_IN_MONTH = 160;
+  //const NUM_OF_WORKING_DAYS = 10;
 
   let totalEmpHrs = 0;
   let totalWorkingDays = 0;
@@ -83,4 +82,25 @@ console.log("Employee Wage :" + empWage);
       totalEmpHrs += getWorkingHrs(empCheckRandom);
   }
   let empSalary = totalEmpHrs * WAGE_PER_HR;
-  console.log("Total Days: " + totalWorkingDays + "\nTotal Hours: " + totalEmpHrs + "\nEmployee Wage: " + empSalary);
+  console.log("UC5 : Total Days:- " + totalWorkingDays + "\nTotal Hours: " + totalEmpHrs + "\nEmployee Wage: " + empSalary);
+
+
+/**
+ * Store Daily Wage in a Array
+ */
+function calcDailyWage(empHrs) {
+    return empHrs * WAGE_PER_HR;
+}
+
+let empDailyWageArray = new Array();
+
+while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_OF_WORKING_DAYS) {
+    totalWorkingDays++;
+    empHrs = getWorkingHrs(empCheck);
+    totalEmpHrs += empHrs;
+    empDailyWageArray.push(calcDailyWage(empHrs));
+}
+
+ employeeWage = calcDailyWage(totalEmpHrs);
+console.log("UC6: Total Days :- " + totalWorkingDays + "\nTotal Hours :- " + totalEmpHrs 
++ "\nEmployee Wage :- " + employeeWage );
